@@ -1,0 +1,19 @@
+name: New hires
+policies:
+  - path: ../lib/macos/policies/macos-device-health.policies.yml
+  - path: ../lib/linux/policies/linux-device-health.policies.yml
+queries:
+  - path: ../lib/all/queries/collect-failed-login-attempts.queries.yml
+agent_options:
+  path: ../lib/agent-options.yml
+controls:
+  scripts:
+    - path: ../lib/macos/scripts/remove-zoom-artifacts.script.sh
+    - path: ../lib/macos/scripts/set-timezone.script.sh
+team_settings:
+  secrets:
+    - secret: "$FLEET_NEW_HIRES_ENROLL_SECRET"
+  features:
+    enable_host_users: true
+    enable_software_inventory: true
+software:
